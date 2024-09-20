@@ -1,8 +1,8 @@
-aname: Exécuter le script toutes les heures
+name: Exécuter le script toutes les heures
 
 on:
   schedule:
-    - cron: '0 * * * *'  # Exécute toutes les heures à l'heure pile
+    - cron: '0 * * * *'  # Exécute toutes les heures à l'heure pile (UTC)
   workflow_dispatch:     # Permet de lancer manuellement le workflow
 
 jobs:
@@ -20,9 +20,12 @@ jobs:
 
       - name: Installer les dépendances
         run: |
-          pip install --upgrade pip
-          pip install -r requirements.txt
+          python -m pip install --upgrade pip
+          pip install requests
 
       - name: Exécuter le script
+        env:
+          MAIL: ${{ secrets.MAIL }}
+          MDP: ${{ secrets.MDP }}
         run: |
-          python reza.py
+          python script.py
