@@ -1,4 +1,4 @@
-name: Exécuter le script toutes les heures
+aname: Exécuter le script toutes les heures
 
 on:
   schedule:
@@ -25,4 +25,4 @@ jobs:
 
       - name: Exécuter le script
         run: |
-          python script.py
+          python reza.py
