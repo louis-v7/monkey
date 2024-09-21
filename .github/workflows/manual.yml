@@ -1,0 +1,31 @@
+name: Exécuter le script toutes les heures
+
+on:
+  schedule:
+    - cron: '0 * * * *'  # Exécute toutes les heures à l'heure pile (UTC)
+  workflow_dispatch:     # Permet de lancer manuellement le workflow
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout du code
+        uses: actions/checkout@v3
+
+      - name: Configurer Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Installer les dépendances
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+
+      - name: Exécuter le script
+        env:
+          MAIL: ${{ secrets.MAIL }}
+          MDP: ${{ secrets.MDP }}
+        run: |
+          python script.py
