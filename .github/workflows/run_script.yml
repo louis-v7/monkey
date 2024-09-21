@@ -28,4 +28,4 @@ jobs:
           MAIL: ${{ secrets.MAIL }}
           MDP: ${{ secrets.MDP }}
         run: |
-          python script.py
+          python reza.py
