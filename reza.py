@@ -66,13 +66,13 @@ else:
 # Calculer la date dans 7 jours au format yyyy-mm-dd
 def calculate_date_plus_7_days():
     today = datetime.date.today()
-    seven_days_later = today + datetime.timedelta(days=7)
+    seven_days_later = today + datetime.timedelta(days=6)
     return seven_days_later.strftime('%Y-%m-%d')
 
 # Construire l'UID
 def calculate_uid():
     future_date = calculate_date_plus_7_days()
-    session = future_date + '_07:00_08:00_planning_45_5'
+    session = future_date + '_19:30_20:30_planning_58_5'
     return session
 
 v_uid = calculate_uid()
