@@ -92,7 +92,6 @@ def send_discord_notification(response_json):
 
         # Envoyer le message à votre webhook Discord
         discord_webhook_url = os.environ.get('DISCORD')
-        print(discord_webhook_url)
 
         if discord_webhook_url:
             discord_data = {
