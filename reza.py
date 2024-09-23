@@ -91,8 +91,7 @@ def send_discord_notification(response_json):
         message = f"✅ Votre réservation pour la session du {date_session} de {heure_debut} à {heure_fin} a été validée."
 
         # Envoyer le message à votre webhook Discord
-        discord_webhook_url = os.environ.get('DISCORD_WEBHOOK_URL')
-        discord_webhook_url = 'https://discord.com/api/webhooks/1287894082978447371/2EETuv0yPksFFWEdES0RQVhOi1Jijs8scDgtGaJhq28MNDeGf31j--M9yixZbFbMiUBS'
+        discord_webhook_url = os.environ.get('DISCORD')
         print(discord_webhook_url)
 
         if discord_webhook_url:
