@@ -76,7 +76,7 @@ def calculate_uid():
     return session
 
 v_uid = calculate_uid()
-v_uid = 2024-98-26_19:30_20:30_planning_58_5
+v_uid = '2024-98-26_19:30_20:30_planning_58_5'
 
 # Fonction pour vérifier le statut et envoyer un message au webhook Discord
 def send_discord_notification(response_json):
