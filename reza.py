@@ -5,6 +5,9 @@ import datetime
 # URL de l'API GraphQL
 url = 'https://api.monkey-resa.com/graphql/'
 
+discord_webhook_url = os.environ.get('DISCORD')
+print(discord_webhook_ur)
+
 # En-têtes de la requête initiale (authentification)
 headers_auth = {
     'Content-Type': 'application/json',
