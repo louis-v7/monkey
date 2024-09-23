@@ -6,7 +6,7 @@ import datetime
 url = 'https://api.monkey-resa.com/graphql/'
 
 discord_webhook_url = os.environ.get('DISCORD')
-print(discord_webhook_ur)
+print(discord_webhook_url)
 
 # En-têtes de la requête initiale (authentification)
 headers_auth = {
