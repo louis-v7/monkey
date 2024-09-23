@@ -77,6 +77,39 @@ def calculate_uid():
 
 v_uid = calculate_uid()
 
+# Fonction pour vérifier le statut et envoyer un message au webhook Discord
+def send_discord_notification(response_json):
+    # Vérifier si le statut est 'validated'
+    registration = response_json['data']['RegisterSession']['Registration']
+    if registration and registration['status'] == 'validated':
+        # Préparer le message
+        uid = response_json['data']['RegisterSession']['uid']
+        date_session = uid.split('_')[0]
+        heure_debut = uid.split('_')[1]
+        heure_fin = uid.split('_')[2]
+        message = f"✅ Votre réservation pour la session du {date_session} de {heure_debut} à {heure_fin} a été validée."
+
+        # Envoyer le message à votre webhook Discord
+        discord_webhook_url = os.environ.get('DISCORD_WEBHOOK_URL')  # Assurez-vous de définir cette variable d'environnement
+
+        if discord_webhook_url:
+            discord_data = {
+                "content": message
+            }
+
+            discord_response = requests.post(discord_webhook_url, json=discord_data)
+
+            if discord_response.status_code == 204:
+                print('Message envoyé avec succès au webhook Discord.')
+            else:
+                print('Erreur lors de l\'envoi du message au webhook Discord :', discord_response.status_code)
+        else:
+            print('Erreur : l\'URL du webhook Discord n\'est pas définie.')
+    else:
+        print('La réservation n\'a pas été validée.')
+
+
+
 # Préparer les en-têtes pour la requête avec le token
 headers = {
     'Authorization': f'Bearer {token}',  # En-tête d'authentification avec le token Bearer
@@ -120,3 +153,14 @@ response = requests.post(url, headers=headers, json=data)
 # Afficher le résultat
 print('Code de statut de la réponse :', response.status_code)
 print('Réponse :', response.text)
+
+# Analyser la réponse JSON
+if response.status_code == 200:
+    result = response.json()
+    if 'errors' in result:
+        print('Erreur lors de l\'inscription :', result['errors'])
+    else:
+        # Appeler la fonction pour envoyer la notification
+        send_discord_notification(result)
+else:
+    print('Erreur lors de la requête :', response.status_code)
