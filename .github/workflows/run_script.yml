@@ -27,5 +27,7 @@ jobs:
         env:
           MAIL: ${{ secrets.MAIL }}
           MDP: ${{ secrets.MDP }}
+          DISCORD: ${{ secrets.DISCORD }}
+
         run: |
           python reza.py
