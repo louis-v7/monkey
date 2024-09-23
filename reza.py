@@ -6,7 +6,7 @@ import datetime
 url = 'https://api.monkey-resa.com/graphql/'
 
 discord_webhook_url = os.environ.get('DISCORD')
-print(discord_webhook_url)
+
 
 # En-têtes de la requête initiale (authentification)
 headers_auth = {
@@ -94,7 +94,6 @@ def send_discord_notification(response_json):
         message = f"✅ Votre réservation pour la session du {date_session} de {heure_debut} à {heure_fin} a été validée."
 
         # Envoyer le message à votre webhook Discord
-        discord_webhook_url = os.environ.get('DISCORD')
 
         if discord_webhook_url:
             discord_data = {
