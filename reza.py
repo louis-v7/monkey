@@ -7,7 +7,7 @@ import time
 API_URL = 'https://api.monkey-resa.com/graphql/'
 
 # Jours cibles pour la réservation (0: Lundi, 2: Mercredi, 3: Jeudi)
-TARGET_DAYS = [0, 2, 3]
+TARGET_DAYS = [0, 1, 2, 3]
 
 def authenticate():
     """Authentifie l'utilisateur et retourne le token."""
