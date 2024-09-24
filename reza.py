@@ -69,7 +69,7 @@ else:
 # Calculer la date dans 7 jours au format yyyy-mm-dd
 def calculate_date_plus_7_days():
     today = datetime.date.today()
-    seven_days_later = today + datetime.timedelta(days=6)
+    seven_days_later = today + datetime.timedelta(days=7)
     return seven_days_later.strftime('%Y-%m-%d')
 
 # Construire l'UID
