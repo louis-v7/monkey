@@ -8,6 +8,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      TZ: Europe/Paris  # Définit le fuseau horaire à Paris
 
     steps:
       - name: Checkout du code
