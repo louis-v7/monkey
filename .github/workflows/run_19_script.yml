@@ -2,7 +2,7 @@ name: Exécuter le script à 19h30
 
 on:
   schedule:
-      - cron: '30 17 * * *'  # Exécute tous les jours à 17h30 UTC (19h30 heure de Paris en heure d'été)
+      - cron: '25 17 * * *'  # Exécute tous les jours à 17h30 UTC (19h30 heure de Paris en heure d'été)
   workflow_dispatch:     # Permet de lancer manuellement le workflow
 
 jobs:
