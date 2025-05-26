@@ -4,7 +4,7 @@ import datetime
 import time
 
 # URL de l'API GraphQL
-API_URL = 'https://api.resa.now/graphql/'
+API_URL = 'https://api.resa.now/api/graphql/'
 
 # Jours cibles pour la réservation (0: Lundi, 2: Mercredi, 3: Jeudi)
 TARGET_DAYS = [0, 1, 2, 3]
