@@ -30,8 +30,8 @@ jobs:
           MAIL: ${{ secrets.MAIL }}
           MDP: ${{ secrets.MDP }}
           DISCORD: ${{ secrets.DISCORD }}
-          MAILE: ${{ secrets.MAIL }}
-          MDPE: ${{ secrets.MDP }}
+          MAILE: ${{ secrets.MAILE }}
+          MDPE: ${{ secrets.MDPE }}
 
         run: |
           python reza.py
